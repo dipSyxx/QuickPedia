@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { searchTerm } }: Props) {
   }
 }
 
-export const SearchResults = async ({ params: { searchTerm } }: Props) => {
+export default async function SearchResults({ params: { searchTerm } }: Props) {
   // get wiki data
   const wikiDate: Promise<SearchResult> = getWikiResults(searchTerm)
   // отримання самих даних
@@ -37,18 +37,16 @@ export const SearchResults = async ({ params: { searchTerm } }: Props) => {
 
   const content = (
     <main className="bg-slate-200 mx-auto max-w-lg py-1 min-h-screen">
-      <h1 className="text-center font-bold text-2xl mb-6">Quick information about: {displayTerm}</h1>
+      <h1 className="text-center font-bold text-2xl mb-6">Quick articles about: {displayTerm}</h1>
       {results ? (
         Object.values(results).map((result) => {
-          return <Item result={result} key={result.pageid} />
+          return <Item key={result.pageid} result={result} />
         })
       ) : (
-        <h2 className="p-2 text-xl">{`${displayTerm} Not Found :(`}</h2>
+        <h2 className="p-2 text-xl">{`${displayTerm} Not Found`}</h2>
       )}
     </main>
   )
 
-  return <>{content}</>
+  return content
 }
-
-export default SearchResults
