@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 
-export const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error)
@@ -22,7 +22,7 @@ export const Error = ({ error, reset }: { error: Error; reset: () => void }) => 
         Try again
       </button>
       <p className="text-xl">
-        Or go back to
+        Or go back to{' '}
         <Link href="/" className="underline">
           Home 🏠
         </Link>
@@ -30,5 +30,3 @@ export const Error = ({ error, reset }: { error: Error; reset: () => void }) => 
     </main>
   )
 }
-
-export default Error

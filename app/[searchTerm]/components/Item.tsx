@@ -6,7 +6,7 @@ type Props = {
   result: Result
 }
 
-export const Item = ({ result }: Props) => {
+export default function Item({ result }: Props) {
   const itemTextCol = (
     <div className="flex flex-col justify-center">
       <h2>
@@ -38,5 +38,3 @@ export const Item = ({ result }: Props) => {
 
   return content
 }
-
-export default Item

@@ -1,6 +1,6 @@
 import styles from './styleLoading.module.css'
 
-export const loading = () => {
+export default function loading() {
   return (
     <main className="bg-slate-200 mx-auto max-w-lg p-1 min-h-screen">
       <div className={styles.loading_position}>
@@ -12,5 +12,3 @@ export const loading = () => {
     </main>
   )
 }
-
-export default loading

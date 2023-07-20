@@ -1,6 +1,6 @@
 'use client'
 
-export const Home = () => {
+export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <h1 className="text-8xl font-bold text-white text-center">Welcome</h1>
@@ -23,5 +23,3 @@ export const Home = () => {
     </main>
   )
 }
-
-export default Home
