@@ -8,24 +8,21 @@ type Props = {
   }
 }
 
-export const generationMetadata = async ({ params: { searchTerm } }: Props) => {
-  // get wiki data
-  const wikiDate: Promise<SearchResult> = getWikiResults(searchTerm)
-
-  // отримання самих даних
-  const data = await wikiDate
-
-  // Визначення терміну відображення searchTerm.replaceAll('%20'- це так називаються відступи у URL силкі, ''- замінюємо просто на пусту стрічку)
-  // покращує читабельність
+export async function generateMetadata({ params: { searchTerm } }: Props) {
+  const wikiData: Promise<SearchResult> = getWikiResults(searchTerm)
+  const data = await wikiData
   const displayTerm = searchTerm.replaceAll('%20', ' ')
 
-  // Якщо не знайдені дані
   if (!data?.query?.pages) {
-    return { title: `${displayTerm} Not Found :(` }
+    return {
+      title: `${displayTerm} Not Found`,
+    }
   }
 
-  // Metadata
-  return { title: displayTerm, description: `Search results for ${displayTerm}` }
+  return {
+    title: displayTerm,
+    description: `Search results for ${displayTerm}`,
+  }
 }
 
 export const SearchResults = async ({ params: { searchTerm } }: Props) => {
