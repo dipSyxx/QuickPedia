@@ -22,9 +22,12 @@ export const Search = () => {
           onChange={(e) => {
             setSearch(e.target.value)
           }}
-          className="bg-white p-2 w-80 text-xl rounded-xl"
+          className="bg-white p-2 text-xl rounded-xl shadow-xl text-black w-full max-w-full border border-black"
         />
-        <button type="submit" className="p-2 rounded-xl bg-slate-300 ml-2 font-bold transition-all hover:bg-slate-400">
+        <button
+          type="submit"
+          className="p-2 rounded-xl shadow-xl ml-2 font-bold transition-all border hover:border-black"
+        >
           🚀
         </button>
       </form>

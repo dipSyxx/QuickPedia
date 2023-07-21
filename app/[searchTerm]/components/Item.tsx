@@ -24,7 +24,7 @@ export default function Item({ result }: Props) {
 
   //Мініатюра-thumbnail
   const content = result?.thumbnail?.source ? (
-    <article className="m-4 max-w-lg">
+    <article className="mx-4 my-6 max-w-full">
       <div className="flex flex-row gap-4">
         <div className="flex flex-col justify-center">
           <Image src={result.thumbnail.source} alt={result.title} width={200} height={200} loading="lazy" />

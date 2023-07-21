@@ -36,7 +36,8 @@ export default async function SearchResults({ params: { searchTerm } }: Props) {
   const displayTerm = searchTerm.replaceAll('%20', ' ')
 
   const content = (
-    <main className="bg-slate-200 mx-auto max-w-lg py-1 min-h-screen">
+    <main className="mx-auto max-w-xl py-1 min-h-screen shadow-2xl rounded-xl">
+      <div className="gradient" />
       <h1 className="text-center font-bold text-2xl mb-6">Quick articles about: {displayTerm}</h1>
       {results ? (
         Object.values(results).map((result) => {
